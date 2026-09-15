@@ -184,8 +184,10 @@ line-height:20px;
 
 <p>Daily Intraday Signals • Option Buying • Bank Nifty • Nifty Analysis • Swing Calls</p>
 
-<a href="https://telegram.dog/+9hxpPtMl68kyNjA9" target="_blank" class="telegram-btn">
-🚀 Request to Join Telegram Channel
+<a href="https://telegram.dog/+9hxpPtMl68kyNjA9"
+   class="telegram-btn"
+   id="joinTelegram">
+   🚀 Join Telegram Channel
 </a>
 
 </section>
@@ -286,8 +288,9 @@ Morning watchlist helps every trading day.
 
 <p>Get Daily Stock Market Signals & Market Analysis.</p>
 
-<a href="https://telegram.dog/+9hxpPtMl68kyNjA9" target="_blank">
-🚀 REQUEST TO JOIN TELEGRAM
+<a href="https://telegram.dog/+9hxpPtMl68kyNjA9"
+   id="joinTelegram2">
+   🚀 CLICK TO JOIN TELEGRAM
 </a>
 
 </section>
@@ -297,6 +300,38 @@ Morning watchlist helps every trading day.
 Disclaimer: Stock market investments are subject to market risks. This Telegram channel shares educational market analysis and trading ideas only and does not guarantee returns or provide financial advice.
 
 </footer>
+<script>
+  // Telegram Join Tracking Function
+  function trackTelegramJoin(url) {
 
+    // Standard Meta Lead Event
+    fbq('track', 'Lead', {
+      content_name: 'Telegram Join',
+      content_category: 'Telegram Channel'
+    });
+
+    // Custom Event
+    fbq('trackCustom', 'TelegramJoin', {
+      channel_name: 'Marathi Trader VIP Telegram'
+    });
+
+    // Wait so Pixel sends event before redirect
+    setTimeout(function () {
+      window.open(url, '_blank');
+    }, 500);
+  }
+
+  // Hero Button
+  document.getElementById("joinTelegram").addEventListener("click", function(e) {
+    e.preventDefault();
+    trackTelegramJoin(this.href);
+  });
+
+  // Bottom CTA Button
+  document.getElementById("joinTelegram2").addEventListener("click", function(e) {
+    e.preventDefault();
+    trackTelegramJoin(this.href);
+  });
+</script>
 </body>
 </html>
